@@ -157,6 +157,9 @@ public class StickyFrame extends JFrame {
             if(status == 0) {
                 dispose();
             }
+            else {
+                setAlwaysOnTop(true);
+            }
         }
     }
     
