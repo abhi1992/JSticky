@@ -50,7 +50,7 @@ public class StickyFrame extends JFrame {
     private JButton add, delete;
     private JPanel title, mainPanel;
     private JTextArea area;
-    private static int multi = 0, xPos, yPos;
+    private static int xPos, yPos;
     private ComponentResizer componentResizer;
     public StickyFrame() {
         this(new Point(50, 50));
@@ -62,8 +62,8 @@ public class StickyFrame extends JFrame {
         setLocation(pp);
         setUndecorated(true);
         setBackground(new Color(255, 255, 153));
-        
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("JSticky 0.0.2.0");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setPreferredSize(new Dimension(200, 230));
         title = new JPanel();
         delete = new JButton(new ImageIcon(getClass().getResource("/Resources/close.png")));
@@ -94,7 +94,7 @@ public class StickyFrame extends JFrame {
         title.add(add);
         title.add(delete);
         title.setBackground(new Color(255, 255, 130));
-        //title.setOpaque(false);
+        
         title.addMouseListener(new MouseAdapter(){  
             public void mousePressed(MouseEvent me){  
               xPos = me.getX();  
@@ -135,8 +135,6 @@ public class StickyFrame extends JFrame {
             @Override
             public void run() {
                 
-                multi++;
-                System.out.println(multi);
                 new StickyFrame(new Point(getLoc().x - 50, getLoc().y + 50));
             }
         });
@@ -148,22 +146,16 @@ public class StickyFrame extends JFrame {
     
     private void deleteAction() {
         boolean flag = true;
-        if(area.getText().equals("") && multi == 0)
-            System.exit(0);
-        if(multi > 0 && area.getText().equals("")) {
-            this.setVisible(false);
-            multi--;
+        if(area.getText().equals("")) {
+            dispose();
             flag = false;
         }
+        
         if(flag) {
+            setAlwaysOnTop(false);
             int status = JOptionPane.showConfirmDialog(this, "Permanently delete this ??");
-            if(status == 0 && multi > 0) {
-                this.setVisible(false);
-                multi--;
-            }
-            if(status == 0 && multi == 0) { 
-                System.exit(0);
-                //System.out.println("zjfkdb.");
+            if(status == 0) {
+                dispose();
             }
         }
     }
