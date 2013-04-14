@@ -61,11 +61,13 @@ Go to JSicky/dist folder you will find the JSicky.jar file.
 Now run the jar file by doble clicking. 
 
 
-
-Windows users can use the StartEliteComixReader.bat file to execute the jar file directly.
-
 It is in the JSicky/dist folder.
 
+
+Windows users can get the exe wrapper JSticky.exe from 
+
+
+http://sourceforge.net/projects/jstickynote/
 
 
 If you want to create your own batch file :
@@ -104,7 +106,7 @@ now type java -jar folder/where/you/extracted/the/project/JSicky/dist/JSicky.jar
 
 I know its too much of a pain. I promise i will come up with a better method soon.
 
-Keep checking http://sourceforge.net/projects/elitecomixread/ for updates.
+Keep checking http://sourceforge.net/projects/jstickynote/ for updates.
 
 
 
