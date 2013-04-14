@@ -45,10 +45,7 @@ public class JSticky {
     public static void main(String[] args) {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | 
-                InstantiationException | 
-                IllegalAccessException | 
-                UnsupportedLookAndFeelException ex) {
+        } catch (Exception ex) {
         }
         SwingUtilities.invokeLater(new Runnable() {
 
